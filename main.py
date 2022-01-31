@@ -1,16 +1,17 @@
-def my_superfunction():
-    print('Hello Python!!!')
-    print('YandexLyceum!!!!')
+from geo_func import get_coords, show_map, get_span
 
 
 def main():
-    print('My first git program')
-    print('And I change it every day')
-    print('Again')
-    print('UFO came and added this line')
-    my_superfunction()
+    toponym = input()
+    try:
+        lat, lon = get_coords(toponym)
+        type_map = 'sat'
+        ll = f'{lat},{lon}'
+        d = get_span(toponym)
+        show_map(ll, type_map, delta=d, point=ll)
+    except Exception as e:
+        print('Error', e)
 
 
 if __name__ == '__main__':
     main()
-    print(1)
